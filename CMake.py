@@ -1,5 +1,4 @@
-﻿from genericpath import exists
-import os
+﻿import os
 
 if __name__ == "__main__":
   # change the working directory

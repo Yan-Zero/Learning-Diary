@@ -10,3 +10,9 @@
 
 读与记都是必须的。
 
+# TODO
+
+## Git Hooks Pre-commit
+
+- [x] 自动更新每日待办。
+
