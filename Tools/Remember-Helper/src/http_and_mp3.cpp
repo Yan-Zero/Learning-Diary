@@ -62,8 +62,8 @@ void MP3Player::Play()
 {
   if (this->state == MP3PlayerState::mPlaying)
     return;
-  // use mciSendString play the mp3 file
-  mciSendString("play media wait", NULL, 0, NULL);
+  // use mciSendString to play the mp3 file
+  mciSendString("play media", NULL, 0, NULL);
   this->state = MP3PlayerState::mPlaying;
 }
 
@@ -71,7 +71,7 @@ void MP3Player::Stop()
 {
   if (this->state == MP3PlayerState::mStopped)
     return;
-  // use mciSendString stop the mp3 file
+  // use mciSendString to stop the mp3 file
   mciSendString("stop media", this->cache, sizeof(this->cache), 0);
   mciSendString("close all", this->cache, sizeof(this->cache), 0);
   this->state = MP3PlayerState::mStopped;
@@ -81,7 +81,7 @@ void MP3Player::Pause()
 {
   if (this->state == MP3PlayerState::mPaused)
     return;
-  // use mciSendString pause the mp3 file
+  // use mciSendString to pause the mp3 file
   mciSendString("pause media", this->cache, sizeof(this->cache), 0);
   this->state = MP3PlayerState::mPaused;
 }
@@ -90,7 +90,7 @@ void MP3Player::Resume()
 {
   if (this->state == MP3PlayerState::mPlaying)
     return;
-  // use mciSendString resume the mp3 file
+  // use mciSendString to resume the mp3 file
   mciSendString("resume media", this->cache, sizeof(this->cache), 0);
   this->state = MP3PlayerState::mPlaying;
 }
@@ -102,11 +102,20 @@ int MP3Player::GetCurrentPosition()
   return (int)(atoi(this->cache) / 1000);
 }
 
-// int MP3Player::GetDuration()
-// {
-//   // use mciSendString to get the duration of the mp3 file
-//   mciSendString("status media length", this->cache, sizeof(this->cache), 0);
-//   return (int)(atoi(this->cache) / 1000);
-// }
+int MP3Player::GetDuration()
+{
+  // use mciSendString to get the duration of the mp3 file
+  mciSendString("status media length", this->cache, sizeof(this->cache), 0);
+  return (int)(atoi(this->cache) / 1000);
+}
 
 #endif
+
+void PlayYoudaoMP3(std::string &audio, std::string &audio_path)
+{
+  auto flag = HttpDownload("https://dict.youdao.com/dictvoice?audio=" + audio + ".mp3", audio_path + "_youdao", true);
+  if (!flag)
+    return;
+  MP3Player player((audio_path + "_youdao").c_str());
+  player.Play();
+}

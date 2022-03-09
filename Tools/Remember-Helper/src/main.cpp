@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Context.hpp"
+#include "context.hpp"
 #include "yaml-cpp/yaml.h"
 #include <fstream>
 #include <MP3.hpp>
@@ -38,24 +38,9 @@ int main()
     resources_dir = config["resources"].as<string>();
 
   remember_dir = join_path(root_dir, remember_dir);
+  resources_dir = join_path(root_dir, resources_dir);
   chinese_dir = join_path(remember_dir, chinese_dir);
   english_dir = join_path(remember_dir, english_dir);
-  resources_dir = join_path(root_dir, resources_dir);
-
-  // print the config
-  cout << "root_dir: " << root_dir << endl;
-  cout << "remember_dir: " << remember_dir << endl;
-  cout << "chinese_dir: " << chinese_dir << endl;
-  cout << "english_dir: " << english_dir << endl;
-  cout << "resources_dir: " << resources_dir << endl;
-
-  // test the MP3Player, the file is resources + '/test.mp3'
-  string test_file = join_path(resources_dir, string("cache/test.mp3"));
-  cout << "test_file: " << test_file << endl;
-  MP3Player player(test_file.c_str());
-  player.Play();
-  // _sleep(5000);
-  // player.Stop();
 
   return 0;
 }

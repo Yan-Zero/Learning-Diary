@@ -5,12 +5,6 @@
 #include <vector>
 #include <ctime>
 
-enum class ContextType {
-  None,
-  ChinesePoem,
-  EnglishWord,
-};
-
 struct RTime {
   int Year = 0;
   char Month = 0;
@@ -23,10 +17,16 @@ class RememberData
   using s = std::string;
   using vs = std::vector<s>;
 public:
+  enum class CType {
+    None,
+    ChinesePoem,
+    EnglishWord,
+  };
+
   s ID;
   int Count = 0;
   bool remembered = false;
-  ContextType Type = ContextType::None;
+  CType Type = CType::None;
   std::vector<s*> *Context = new std::vector<s*>();
   RTime Time;
 
@@ -54,18 +54,56 @@ public:
   ChinesePoem(s &ID, vs &content, int count, bool remembered, RTime Time, s &author);
 
   ChinesePoem(s &ID, vs &content, int count, bool remembered, RTime Time) :
-    RememberData(ID, content, count, remembered, Time) {};
+    RememberData(ID, content, count, remembered, Time) {
+    this->Type = CType::ChinesePoem;
+  };;
   ChinesePoem(s &ID, vs &content, int count, bool remembered) :
-    RememberData(ID, content, count, remembered) {};
+    RememberData(ID, content, count, remembered) {
+    this->Type = CType::ChinesePoem;
+  };;
   ChinesePoem(s &ID, vs &content, int count) :
-    RememberData(ID, content, count) {};
+    RememberData(ID, content, count) {
+    this->Type = CType::ChinesePoem;
+  };;
   ChinesePoem(s &ID, vs &content) :
-    RememberData(ID, content) {};
+    RememberData(ID, content) {
+    this->Type = CType::ChinesePoem;
+  };
   ChinesePoem(s &ID) :
-    RememberData(ID) {};
+    RememberData(ID) {
+    this->Type = CType::ChinesePoem;
+  };
   
   virtual ~ChinesePoem();
 };
 
+class EnglishWord : public RememberData
+{
+  using s = std::string;
+  using vs = std::vector<s>;
+public:
+  EnglishWord(s &ID, vs &content, int count, bool remembered, RTime Time) :
+    RememberData(ID, content, count, remembered, Time) {
+    this->Type = CType::EnglishWord;
+  };;
+  EnglishWord(s &ID, vs &content, int count, bool remembered) :
+    RememberData(ID, content, count, remembered) {
+    this->Type = CType::EnglishWord;
+  };;
+  EnglishWord(s &ID, vs &content, int count) :
+    RememberData(ID, content, count) {
+    this->Type = CType::EnglishWord;
+  };;
+  EnglishWord(s &ID, vs &content) :
+    RememberData(ID, content) {
+    this->Type = CType::EnglishWord;
+  };
+  EnglishWord(s &ID) :
+    RememberData(ID) {
+    this->Type = CType::EnglishWord;
+  };
+
+  virtual ~EnglishWord() {};
+}
 
 #endif

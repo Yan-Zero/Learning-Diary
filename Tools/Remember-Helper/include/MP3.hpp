@@ -23,7 +23,7 @@ public:
   // void SetPosition(int position);
   // void SetSpeed(int speed);
   int GetCurrentPosition();
-  // 总时长
+  // total time in seconds
   int GetDuration();
   ~MP3Player();
 

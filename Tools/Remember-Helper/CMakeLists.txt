@@ -11,7 +11,13 @@ set(
     src/main.cpp
     src/context.cpp
     src/http_and_mp3.cpp
+    src/push_system_toast.cpp
+    src/push_system_cli.cpp
+    src/wintoastlib.cpp
 )
+
+# if you want to use the cli, you delete the following line
+add_definitions(-D_USE_TOAST)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
