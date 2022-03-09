@@ -4,12 +4,13 @@ project(Remember-Helper VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-set(LIBS_DIRS "${PROJECT_SOURCE_DIR}/../../libs")
+set(LIBS_DIRS "${PROJECT_SOURCE_DIR}/../../Libs")
 
 set(
   SOURCES
     src/main.cpp
     src/context.cpp
+    src/http_and_mp3.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})

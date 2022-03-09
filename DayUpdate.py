@@ -13,21 +13,24 @@ if __name__ == "__main__":
   toaster = ToastNotifier()
   toaster.show_toast(title = "每日更新",
     msg = "今天是 " + time.strftime("%Y-%m-%d", time.localtime()) + "，继续加油！",
-    threaded = True)
+    threaded = True, duration = 3)
 
   with open(r"DayUpdate.py", "r+", encoding="utf-8") as f:
     content = f.read()
     f.seek(0, 0)
     f.write(content.replace(_time, time.strftime("%Y-%m-%d", time.localtime())))
 
-  recreat = {
-    "libs\\day_todo.md": "doc\\DayTODO.md",
-  }
-  for src, dst in recreat.items():
-    os.system(f"copy {src} {dst}")
+  _time = time.strftime("%Y-%m-%d", time.localtime())
+
+  recreat = [
+    ("Doc\\DayTODO.md", f"History\\TODO\\{_time}.md"),
+    ("Libs\\day_todo.md", "Doc\\DayTODO.md"),
+  ]
+  for src, dst in recreat:
+    os.system(f"copy /Y {src} {dst}")
     with open(dst, 'r+', encoding="utf-8") as f:
       content = f.read()
       f.seek(0, 0)
-      f.write(content.replace("__time__", time.strftime("%Y-%m-%d", time.localtime())))
+      f.write(content.replace("$__time__", _time))
   
   exit(1)
