@@ -23,12 +23,17 @@ public:
     EnglishWord,
   };
 
+  struct UserData
+  {
+    int Count = 0;
+    bool Remembered = false;
+    RTime Time;
+  };
+
   s ID;
-  int Count = 0;
-  bool remembered = false;
   CType Type = CType::None;
   std::vector<s*> *Context = new std::vector<s*>();
-  RTime Time;
+  UserData User;
 
   RememberData(s &ID, vs &content, int count, bool remembered, RTime Time);
   RememberData(s &ID, vs &content, int count, bool remembered);
@@ -104,6 +109,6 @@ public:
   };
 
   virtual ~EnglishWord() {};
-}
+};
 
 #endif

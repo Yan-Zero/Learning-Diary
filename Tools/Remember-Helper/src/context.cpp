@@ -16,11 +16,15 @@ RememberData::RememberData(s &ID)
   auto temp = time(nullptr);
   tm _tm;
   localtime_s(&_tm, &temp);
-  this->Time = {
-    _tm.tm_year + 1900,
-    static_cast<char>(_tm.tm_mon + 1),
-    static_cast<char>(_tm.tm_mday),
-    static_cast<char>(_tm.tm_hour)
+  this->User = {
+    0,
+    false,
+    {
+      _tm.tm_year + 1900,
+      static_cast<char>(_tm.tm_mon + 1),
+      static_cast<char>(_tm.tm_mday),
+      static_cast<char>(_tm.tm_hour)
+    }
   };
 };
 
@@ -34,19 +38,19 @@ RememberData::RememberData(s &ID, vs &content) :
 RememberData::RememberData(s &ID, vs &content, int count) :
   RememberData(ID, content)
 {
-  this->Count = count;
+  this->User.Count = count;
 };
 
 RememberData::RememberData(s &ID, vs &content, int count, bool remembered) :
   RememberData(ID, content, count)
 {
-  this->remembered = remembered;
+  this->User.Remembered = remembered;
 };
 
 RememberData::RememberData(s &ID, vs &content, int count, bool remembered, RTime Time) :
   RememberData(ID, content, count, remembered)
 {
-  this->Time = Time;
+  this->User.Time = Time;
 };
 
 ChinesePoem::~ChinesePoem()

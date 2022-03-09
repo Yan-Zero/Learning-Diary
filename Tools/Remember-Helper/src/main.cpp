@@ -22,14 +22,14 @@ int main()
 
   // Get the config
   string root_dir = "../";
-  string remember_dir = "remember";
-  string chinese_dir = "chinese";
-  string english_dir = "english";
+  string data_dir = "data";
+  string chinese_dir = "remember/english";
+  string english_dir = "remember/english";
   string resources_dir = "Resources";
   if(config["root"])
     root_dir = config["root"].as<string>();
   if(config["remember"])
-    remember_dir = config["remember"].as<string>();
+    data_dir = config["data"].as<string>();
   if(config["chinese"])
     chinese_dir = config["chinese"].as<string>();
   if(config["english"])
@@ -37,10 +37,10 @@ int main()
   if(config["resources"])
     resources_dir = config["resources"].as<string>();
 
-  remember_dir = join_path(root_dir, remember_dir);
+  data_dir = join_path(root_dir, data_dir);
   resources_dir = join_path(root_dir, resources_dir);
-  chinese_dir = join_path(remember_dir, chinese_dir);
-  english_dir = join_path(remember_dir, english_dir);
+  chinese_dir = join_path(resources_dir, chinese_dir);
+  english_dir = join_path(resources_dir, english_dir);
 
   return 0;
 }
