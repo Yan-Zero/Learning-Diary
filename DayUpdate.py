@@ -13,7 +13,7 @@ if __name__ == "__main__":
   toaster = ToastNotifier()
   toaster.show_toast(title = "每日更新",
     msg = "今天是 " + time.strftime("%Y-%m-%d", time.localtime()) + "，继续加油！",
-    threaded = True, duration = 3)
+    threaded = True, duration = 2)
 
   with open(r"DayUpdate.py", "r+", encoding="utf-8") as f:
     content = f.read()
@@ -22,8 +22,15 @@ if __name__ == "__main__":
 
   _time = time.strftime("%Y-%m-%d", time.localtime())
 
-  recreat = [
+  # move the file
+  mv_list = [
     ("Doc\\DayTODO.md", f"History\\TODO\\{_time}.md"),
+  ]
+  for src, dst in mv_list:
+    if os.path.exists(src):
+      os.system("git mv " + src + " " + dst)
+
+  recreat = [
     ("Libs\\day_todo.md", "Doc\\DayTODO.md"),
   ]
   for src, dst in recreat:

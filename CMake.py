@@ -8,7 +8,7 @@ if __name__ == "__main__":
     build = os.path.join(root, dir, "build")
     if not os.path.exists(build):
       continue
-    os.system(f'cd {build} && cmake -G "MinGW Makefiles" ../ && mingw32-make')
+    os.system(f'cd {build} && cmake -G "MinGW Makefiles" ../ && make')
     if os.path.exists(os.path.join(build, "Release", dir + ".exe")):
       os.system(f'cd {build} && copy /Y "Release/{dir}.exe" "../../{dir}.exe"')
     else:
