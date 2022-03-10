@@ -17,7 +17,7 @@ set(
 )
 
 # if you want to use the cli, you delete the following line
-add_definitions(-D_USE_TOAST)
+# add_definitions(-D_USE_TOAST)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 

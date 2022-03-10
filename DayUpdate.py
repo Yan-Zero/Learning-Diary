@@ -1,6 +1,3 @@
-
-_time = "2022-03-10"
-
 import os
 import datetime
 from win10toast import ToastNotifier
@@ -13,25 +10,25 @@ def MoveFile(src, dst):
   elif os.path.exists(dst):
     MoveFile(dst, os.path.dirname(dst) + "bak." + os.path.basename(dst))
   os.rename(src, dst)
+def ReadTimeFromFile(path):
+  with open(path, "r") as f:
+    return f.readline()[4 : -2]
 
 if __name__ == "__main__":
   tm = datetime.date.today().strftime("%Y-%m-%d")
-  if _time == tm:
+  _t = ReadTimeFromFile('Doc\\DayTODO.md')
+  if _t == tm:
     exit(0)
   
   ToastNotifier().show_toast(title = "每日更新",
     msg = "今天是 " + tm + "，继续加油！",
     threaded = True, duration = 2)
 
-  with open(r"DayUpdate.py", "r+", encoding="utf-8") as f:
-    content = f.read()
-    f.seek(0, 0)
-    f.write(content.replace(_time, tm))
-
   for src, dst in [
-      ("Doc\\DayTODO.md", "History\\" + Yesterday().strftime("%Y\\%m\\%d.md"))]:
+      ("Doc\\DayTODO.md", "History\\" + _t.replace("-", "\\") + ".md")]:
     if os.path.exists(src):
       MoveFile(src, dst)
+      os.system("git add " + dst)
 
   for src, dst in [
       ("Resources\\day_todo.md", "Doc\\DayTODO.md")]:
@@ -40,5 +37,6 @@ if __name__ == "__main__":
       content = f.read()
       f.seek(0, 0)
       f.write(content.replace("$__time__", tm))
+    os.system("git add " + dst)
   
   exit(1)

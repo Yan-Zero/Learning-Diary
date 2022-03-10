@@ -1,8 +1,11 @@
 # 数学
-  1. <input type="checkbox" checked disabled/> 高等数学（同济）上册
-  2. <input type="checkbox" disabled/> 高等数学（同济）下册
+  - [x] 高等数学（同济）上册
+  - [ ] 高等数学（同济）下册
 
 # 计算机
-  1. <input type="checkbox" checked disabled/> C++ Primer Plus
-  2. <input type="checkbox" disabled/> C++ Primer
-  3. <input type="checkbox" disabled/> 编译原理
+  - [x] C++ Primer Plus
+  - [ ] C++ Primer
+  - [ ] 编译原理
+
+# 生物
+  - [ ] 普通生物学

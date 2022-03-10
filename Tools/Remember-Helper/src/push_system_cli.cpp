@@ -3,9 +3,6 @@
 
 PushSystem::PushSystem()
 {
-  this->m_depository = new std::vector<RememberData*>();
-  this->m_review = new std::list<RememberData*>();
-  this->m_error = new std::list<RememberData*>();
 }
 PushSystem::~PushSystem()
 {
@@ -15,16 +12,15 @@ PushSystem::~PushSystem()
   // for(auto &item : *this->m_review)
   //   delete item;
   delete this->m_review;
-  delete this->m_error;
 }
 void PushSystem::Load(std::vector<RememberData*> &array)
 {
-  this->m_depository->clear();
-  this->m_depository->reserve(array.size());
+  m_depository->clear();
+  m_depository->reserve(array.size());
   for (auto &data : array)
-    this->m_depository->push_back(data);
-  this->m_index = 0;
-  this->m_rest = this->cap;
+    m_depository->push_back(data);
+  m_index = 0;
+  m_rest = cap;
 }
 void PushSystem::Load(std::vector<RememberData> &array)
 {
@@ -37,25 +33,41 @@ void PushSystem::Load(std::vector<RememberData> &array)
 }
 void PushSystem::Next()
 {
-  if (this->m_rest == 0)
+  // if the rest is 0, then we need to review or continue to learn //
+  if (m_rest == 0)
   {
-    this->review = !this->review;
-    this->m_rest = this->review ? rand() % this->cap + 1 : this->cap;
+    review = !review;
+    if(type == PSType::RandomReview)
+      m_rest = review ? this->Random(static_cast<size_t>(1), cap) : cap;
+    else
+      m_rest = cap;
   }
-  
-  if(this->review)
+
+  m_rest--;
+  // get the data from review or error list //
+  if(review)
   {
+    size_t total_count = m_review->size();
+    if(total_count == 0)
+      return;
+    auto index = this->Random(static_cast<size_t>(0), total_count - 1);
+    auto it = m_review->begin();
+    std::advance(it, index);
 
     return;
   }
 
-  this->m_rest--;
-  this->m_index++;
-  if (this->m_index >= this->m_depository->size())
-    this->m_index = 0;
-  
+  if (m_index >= m_depository->size())
+  {
+    m_index = m_depository->size();
+    do
+    {
+      --m_index;
+      std::swap(m_depository[m_index], m_depository[Random(static_cast<size_t>(0), m_index)]);
+    } while (m_index);
+  }
   this->Show(this->m_index);
-  this->m_review->push_back(this->m_depository->at(this->m_index));
+  m_index++;
 }
 
 #ifndef _USE_TOAST
