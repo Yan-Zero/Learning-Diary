@@ -13,16 +13,6 @@ def MoveFile(src, dst):
 def ReadTimeFromFile(path):
   with open(path, "r", encoding='utf-8') as f:
     return f.readline()[4 : -3]
-# def UpdateCalendar(path):
-#   ''' `path` is the path where the Markdown File is. '''
-#   path = os.path.join(path, str(datetime.date.today().year) + ' Calendar.md')
-#   with open(path, 'r+', encoding='utf-8') as file:
-#     line_index = 0
-#     flag_month = False
-#     line = file.readline()
-#     while line:
-#       line_index += 1
-#       line = file.readline()
 
 if __name__ == "__main__":
   tm = datetime.date.today().strftime("%Y-%m-%d")
