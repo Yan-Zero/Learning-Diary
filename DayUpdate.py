@@ -1,5 +1,4 @@
-import os
-import datetime
+import datetime, os
 from win10toast import ToastNotifier
 
 def Yesterday():
@@ -13,6 +12,25 @@ def MoveFile(src, dst):
 def ReadTimeFromFile(path):
   with open(path, "r", encoding='utf-8') as f:
     return f.readline()[4 : -3]
+def UpdateCalendar(path, doc_path, _month: int | None, _day: str | None):
+  if not _month:
+    _month = Yesterday().month
+  if not _day:
+    _day = Yesterday().strftime("%d")
+  with open(path, "r", encoding='utf-8') as f:
+    lines = f.readlines()
+    line = 0
+    while lines[line][0 : 2] != "##" or int(lines[line][3 : 5]) != _month:
+      line += 1
+    while lines[line].find(_day) == -1:
+      line += 1
+    index = lines[line].find(_day)
+    index = (lines[line].rfind("|", None, index), lines[line].find("|", index))
+    lines[line] = lines[line][: index[0] + 1] + f'[{_day}]({doc_path})' + lines[line][index[1] :]
+    
+    f.seek(0)
+    f.writelines(lines)
+
 
 if __name__ == "__main__":
   tm = datetime.date.today().strftime("%Y-%m-%d")
@@ -24,10 +42,13 @@ if __name__ == "__main__":
     msg = "今天是 " + tm + "，继续加油！",
     threaded = True, duration = 2)
 
+  calendar_path = "History\\2022\\2022 Calendar.md"
+
   for src, dst in [
       ("Doc\\DayTODO.md", "History\\" + _t.replace("-", "\\") + ".md")]:
     if os.path.exists(src):
       MoveFile(src, dst)
+      UpdateCalendar(calendar_path, dst, int(_t[5 : 7]), _t[8 :])
       os.system("git add " + dst)
 
   for src, dst in [
