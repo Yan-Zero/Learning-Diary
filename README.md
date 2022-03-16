@@ -28,3 +28,8 @@
 
 - [x] 日历📅
 - [x] 自动更新日历
+
+# Others 
+
+[大文件上传](https://blog.csdn.net/tyro_java/article/details/53440666)
+
