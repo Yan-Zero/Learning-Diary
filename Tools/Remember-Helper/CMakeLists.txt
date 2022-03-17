@@ -14,6 +14,7 @@ set(
     src/push_system_toast.cpp
     src/push_system_cli.cpp
     src/wintoastlib.cpp
+    src/path.cpp
 )
 
 # if you want to use the cli, you delete the following line

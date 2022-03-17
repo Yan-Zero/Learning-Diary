@@ -6,3 +6,6 @@ cache/
 
 # Python
 __pycache__/
+
+# office
+~$*.doc*

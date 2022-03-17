@@ -17,7 +17,7 @@ def UpdateCalendar(path, doc_path, _month: int | None, _day: str | None):
     _month = Yesterday().month
   if not _day:
     _day = Yesterday().strftime("%d")
-  with open(path, "r", encoding='utf-8') as f:
+  with open(path, "r+", encoding='utf-8') as f:
     lines = f.readlines()
     line = 0
     while lines[line][0 : 2] != "##" or int(lines[line][3 : 5]) != _month:
@@ -47,8 +47,8 @@ if __name__ == "__main__":
   for src, dst in [
       ("Doc\\DayTODO.md", "History\\" + _t.replace("-", "\\") + ".md")]:
     if os.path.exists(src):
+      UpdateCalendar(calendar_path, dst[-len("xx\\xx.md"):], int(_t[5 : 7]), _t[8 :])
       MoveFile(src, dst)
-      UpdateCalendar(calendar_path, dst, int(_t[5 : 7]), _t[8 :])
       os.system("git add " + dst)
 
   for src, dst in [
@@ -59,5 +59,7 @@ if __name__ == "__main__":
       f.seek(0, 0)
       f.write(content.replace("$__time__", tm))
     os.system("git add " + dst)
+  
+  os.system('git add ' + calendar_path)
   
   exit(1)
