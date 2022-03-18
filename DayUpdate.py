@@ -3,15 +3,18 @@ from win10toast import ToastNotifier
 
 def Yesterday():
   return datetime.date.today() - datetime.timedelta(days = 1)
+
 def MoveFile(src, dst):
   if not os.path.exists(os.path.dirname(dst)):
     os.makedirs(os.path.dirname(dst))
   elif os.path.exists(dst):
     MoveFile(dst, os.path.dirname(dst) + "bak." + os.path.basename(dst))
   os.rename(src, dst)
+
 def ReadTimeFromFile(path):
   with open(path, "r", encoding='utf-8') as f:
     return f.readline()[4 : -3]
+
 def UpdateCalendar(path, doc_path, _month: int | None, _day: str | None):
   if not _month:
     _month = Yesterday().month
@@ -32,6 +35,7 @@ def UpdateCalendar(path, doc_path, _month: int | None, _day: str | None):
     f.writelines(lines)
 
 
+
 if __name__ == "__main__":
   tm = datetime.date.today().strftime("%Y-%m-%d")
   _t = ReadTimeFromFile('Doc\\DayTODO.md')
@@ -42,7 +46,7 @@ if __name__ == "__main__":
     msg = "今天是 " + tm + "，继续加油！",
     threaded = True, duration = 2)
 
-  calendar_path = "History\\2022\\2022 Calendar.md"
+  calendar_path = 'History\\2022\\"2022 Calendar.md"'
 
   for src, dst in [
       ("Doc\\DayTODO.md", "History\\" + _t.replace("-", "\\") + ".md")]:

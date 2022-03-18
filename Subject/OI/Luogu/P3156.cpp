@@ -19,4 +19,6 @@ int main()
     cin >> quest[i];
   for (int i = 1; i <= m; ++i)
     cout << student[quest[i]] << endl;
+
+  return 0;
 }

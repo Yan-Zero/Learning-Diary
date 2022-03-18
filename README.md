@@ -16,20 +16,21 @@
 
 # TODO
 
-每日待办是这个：[Day-Plan](Doc/DayTODO.md)<br/>
-历史记录: [History](History/TODO/)<br/>
+每日待办是这个：[Day-Plan](Doc/DayTODO.md) 
+
+历史记录: [History](History/TODO/)
+
 今年日历：[2022📅](History/2022/2022%20Calendar.md)
 
 ## Git Hooks Pre-commit
 
-- [x] 自动更新每日待办。
+- [X] 自动更新每日待办。
 
 ## Project
 
-- [x] 日历📅
-- [x] 自动更新日历
+- [X] 日历📅
+- [X] 自动更新日历
 
-# Others 
+# Others
 
 [大文件上传](https://blog.csdn.net/tyro_java/article/details/53440666)
-

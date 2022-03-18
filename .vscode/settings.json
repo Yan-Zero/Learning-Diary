@@ -1,6 +1,13 @@
 {
   "files.associations": {
     "*.rmd": "markdown",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "bitset": "cpp",
+    "memory": "cpp",
+    "optional": "cpp",
+    "random": "cpp",
+    "xiosbase": "cpp",
+    "xutility": "cpp",
+    "xstring": "cpp"
   }
 }
