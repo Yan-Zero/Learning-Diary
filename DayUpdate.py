@@ -46,7 +46,7 @@ if __name__ == "__main__":
     msg = "今天是 " + tm + "，继续加油！",
     threaded = True, duration = 2)
 
-  calendar_path = 'History\\2022\\"2022 Calendar.md"'
+  calendar_path = 'History\\2022\\2022-Calendar.md'
 
   for src, dst in [
       ("Doc\\DayTODO.md", "History\\" + _t.replace("-", "\\") + ".md")]:

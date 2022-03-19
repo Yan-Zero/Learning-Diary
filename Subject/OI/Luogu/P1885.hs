@@ -3,9 +3,9 @@ get_char :: Int -> Int -> [Int] -> String
 get_char 1 x _ = if x == 1 then "m" else "o"
 get_char i x ls
   | x <= b = get_char (i-1) x ls
-  | a - x <= b = get_char (i-1) (b-a+x) ls
+  | a <= b = get_char (i-1) (b-a) ls
   | otherwise = if x - b == 1 then "m" else "o"
-  where a = ls !! (i - 1)
+  where a = ls !! (i - 1) - x
         b = ls !! (i - 2)
 
 main :: IO ()
