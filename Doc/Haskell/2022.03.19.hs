@@ -25,6 +25,3 @@ buildTree [x] = Leaf x
 buildTree xs = 
   let (ys, zs) = splitAt (length xs `div` 2) xs
   in Node (length xs) (buildTree ys) (buildTree zs)
-
--- build complete binary tree from bottom to top 
-buildTree' :: [a] -> Tree a
