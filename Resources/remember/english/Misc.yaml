@@ -1,9 +1,73 @@
 ﻿- ID: carpenter
   Type: English-Word
+  Context:
+    - /ˈkɑːpəntə(r)/
+    - n.
+    - 木工; 木匠;
+    - She was in the second year of her apprenticeship as a carpenter.
+    - /ˈkɑːpəntə(r)/
+    - v.
+    - 以木工手艺造[修](家具,器物,房屋等);
 - ID: ambition
   Type: English-Word
+  Context:
+    - /æmˈbɪʃn/
+    - n.
+    - 追求的目标;夙愿;野心;雄心;志向;抱负
+    - His burning ambition was to study medicine.
+    - /æmˈbɪʃn/
+    - v.
+    - 热望
+- ID: reverse
+  Type: English-Word
+  Context: 
+    - /rɪˈvɜːs/
+    - v.
+    - 颠倒;彻底转变;使完全相反;
+    - The government has failed to reverse the economic decline.
+    - /rɪˈvɜːs/
+    - v.
+    - 撤销，废除(决定、法律等);
+    - The Court of Appeal reversed the decision.
+    - /rɪˈvɜːs/
+    - v.
+    - 使次序颠倒;使反转;
+    - You should reverse the order of these pages.
+    - /rɪˈvɜːs/
+    - v.
+    - 交换（位置或功能）;
+    - She used to work for me, but our situations are now reversed.
+    - /rɪˈvɜːs/
+    - n.
+    - 相反的情况(或事物);后面;背面;反面;
+    - Although I expected to enjoy living in the country, in fact the reverse is true.
+    - /rɪˈvɜːs/
+    - n.[U]
+    - 倒挡(also reverse gear)
+    - Put the car in/into reverse.
+    - /rɪˈvɜːs/
+    - n.
+    - 损失(同义词:setback)
+    - Property values have suffered another reverse.
+    - /rɪˈvɜːs/
+    - adj.
+    - 相反的;反面的;反向的
+    - The winners were announced in reverse order (= the person in the lowest place was announced first).
+    - /rɪˈvɜːs/
+    - adj.
+    - 背面的;后面的
+    - Iron the garment on the reverse side.
 - ID: stool
   Type: English-Word
+  Context:
+    - /stuːl/
+    - n.
+    - 凳子;大便;粪便
+    - a piano stool
+    - /stuːl/
+    - v.
+    - 长出新枝;排便
+    - Stooling patterns and colonic motility after transanal one-stage pull-through operation for Hirschsprung's disease in children.
 - ID: pile
   Type: English-Word
 - ID: tragedy

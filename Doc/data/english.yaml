@@ -1,1 +1,9 @@
-﻿
+﻿- ID: carpenter
+  Count: 1
+  Remembered: False
+- ID: reverse
+  Count: 1
+  Remembered: True
+- ID: stool
+  Count: 1
+  Remembered: False
