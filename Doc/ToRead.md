@@ -4,9 +4,12 @@
 
 # 计算机
   - [x] C++ Primer Plus
-  - [ ] 编译原理 18/630 <progress id="read_p" max="630" value="18"> 剩余：612 Pages </progress>
-  - [ ] 算法导论 191/715 <progress id="read_p" max="715" value="191"> 剩余：524 Pages </progress>
+  - [ ] 编译原理 018/630 <progress id="read_p" max="630" value="18"> 剩余：612 Pages </progress>
+  - [ ] 算法导论 192/715 <progress id="read_p" max="715" value="192"> 剩余：523 Pages </progress>
   - [ ] C++ Primer
+
+# 生物
+  - [ ] 普通生物学 25/208 <progress id="read_p" max="208" value="25"></progress>
 
 ## 方向
   - [ ] 高级语言程序设计
@@ -15,7 +18,6 @@
   - [ ] 数理逻辑
   - [ ] 形式语言与自动机
   - [ ] 电子技术基础
-  - [ ] 数据结构与算法
   - [ ] 计算机组成原理
   - [ ] 软件工程
   - [ ] 计算机网络
@@ -43,6 +45,3 @@
   - [ ] 程序设计
   - [ ] 信息安全数学基础
   - [ ] 计算机体系结构
-
-# 生物
-  - [ ] 普通生物学
