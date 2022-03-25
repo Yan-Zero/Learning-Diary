@@ -9,6 +9,15 @@
   - [ ] C++ Primer
 
 # 生物
+  - [x] 糖酵解
+  - [ ] 柠檬酸循环 <progress id="read_p" max="7" value="5"></progress>
+    - [x] CoA
+    - [x] 柠檬酸
+    - [x] α-酮戊二酸
+    - [x] 琥珀酸
+    - [x] FAD & FADH2
+    - [ ] 苹果酸
+    - [ ] 草酰乙酸
   - [ ] 普通生物学 25/208 <progress id="read_p" max="208" value="25"></progress>
 
 ## 方向
