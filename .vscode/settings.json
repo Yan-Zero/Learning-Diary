@@ -1,6 +1,5 @@
 {
   "files.associations": {
-    "*.rmd": "markdown",
     "iostream": "cpp",
     "bitset": "cpp",
     "memory": "cpp",
@@ -76,7 +75,6 @@
     "xstddef": "cpp",
     "xtr1common": "cpp",
     "xtree": "cpp",
-    "*.in": "cpp",
     "stdio.h": "c"
   }
 }
