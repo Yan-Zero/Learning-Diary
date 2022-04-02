@@ -44,7 +44,6 @@
     "locale": "cpp",
     "map": "cpp",
     "mutex": "cpp",
-    "new": "cpp",
     "ratio": "cpp",
     "set": "cpp",
     "shared_mutex": "cpp",
