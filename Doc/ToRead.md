@@ -10,6 +10,13 @@
 
 # 生物
   - [ ] 普通生物学 33/208 <progress id="read_p" max="208" value="33"></progress>
+  - [ ] 微生物学：原理与应用
+
+# 文学
+  - [ ] 鲁迅全集 <progress id="read_p" max="20" value="2"></progress>
+    - [x] 第一卷
+    - [ ] 第二卷
+    - [x] 第三卷
 
 ## 方向
   - [ ] 高级语言程序设计
