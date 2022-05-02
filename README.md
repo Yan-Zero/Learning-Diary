@@ -20,7 +20,7 @@
 
 历史记录: [History](History/TODO/)
 
-今年日历：[2022📅](History/2022/2022%20Calendar.md)
+今年日历：[2022📅](History/2022/2022-Calendar.md)
 
 ## Git Hooks Pre-commit
 
